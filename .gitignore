@@ -2,6 +2,6 @@ _site
 .sass-cache
 .jekyll-metadata
 
-/_data/stories_top.json
+/_data/stories.json
 
 .DS_Store

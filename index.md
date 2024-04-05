@@ -8,40 +8,42 @@ layout: default
 
 Track HN ([track-hacker-news.com](https://track-hacker-news.com)) is a project to track, archive, visualize and analyze data from [Hacker News](https://news.ycombinator.com/).
 
-TODO
+Maintained by [Nami W](https://nami.land/). Database sponsored by [Retool](https://retool.com/).
 
 ## features
 
-- all data from epoch to current
+- complete and up-to-date dataset
+- additional fields like URL HTTP status
 - score, rank and comments count history
+- interactive dashboard
 
-## live data - score/rank/comments history for current top stories
+## sample live data - score/rank/comments history for current top stories
 
-{% for story in site.data.stories_top.stories %}
-  {% include chart.md story_index=forloop.index story_data=story %}
+{% for story in site.data.stories.stories %}
+  {% include story.md story_index=forloop.index story_data=story %}
 {% endfor %}
 
 ## dashboard
 
+TODO
+
 ## components
 
-The projects consists of different parts
+This projects consists of several components. I'm working on open sourcing most of them.
 
-- a server to track and archive data
-- a database to store data
-- a dashboard build with retool
-- a chrome extension to add score/rank history to HN website
-- an automate twitter/x bot
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rails/rails-plain.svg" width="16" style="display: inline-block" /> a service to track and archive data
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="16" style="display: inline-block" /> a database to store and search data
+- <img src="assets/retool.svg" width="16" style="display: inline-block" /> a dashboard build with retool
+- <img src="assets/chrome-web-store.svg" width="16" style="display: inline-block" /> a chrome extension to add score/rank history chart to HN website
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" width="16" style="display: inline-block" /> an automate twitter/x bot
 
 ## posts/reports
 
-I've posted posts/reports:
-
-- [TODO](TODO)
+- [Track HN: analyze the survival rate of 120,396 Show HN stories (June 2023)](https://nami.land/2023/06/11/track-hn-analyze-survival-rate-of-120-396-show-hn-posts-june-2023.html)
 
 ## help needed
 
-Retool kindly sponsors a postgres instance. I'm still looking for sponsors for the computing resources.
+Retool kindly sponsors a postgres instance. I'm still looking for sponsors for the computing resources. If you are interested, please [contact me](mailto:me@nami.land).
 
 ## feedbacks
 

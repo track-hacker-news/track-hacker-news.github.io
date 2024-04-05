@@ -1,8 +1,8 @@
-<!-- {{include.story_index}}
-{{include.story_data | jsonify}}
- -->
-
-### {{include.story_data.id}} - {{include.story_data.title}}
+<h3>
+<a target="_blank" href="https://news.ycombinator.com/item?id={{include.story_data.id}}">
+  {{include.story_data.id}} - {{include.story_data.title}}
+</a>
+</h3>
 
 <div id="sample-score-chart-{{include.story_index}}"></div>
 
@@ -41,6 +41,7 @@
           color: { field: "layer", type: "nominal", scheme: "category10" },
           tooltip: [
             { field: "score", type: "quantitative", title: "score" },
+            { field: "tracked_at", type: "temporal", title: "time", timeUnit: "yearmonthdatehoursminutes"}
           ]
         }
       },
@@ -65,6 +66,7 @@
           color: { field: "layer", type: "nominal", scheme: "category10" },
           tooltip: [
             { field: "count", type: "quantitative", title: "comments" },
+            { field: "tracked_at", type: "temporal", title: "time", timeUnit: "yearmonthdatehoursminutes"}
           ]
         }
       },
@@ -93,6 +95,7 @@
           color: { field: "layer", type: "nominal", scheme: "category10" },
           tooltip: [
             { field: "rank", type: "quantitative", title: "rank" },
+            { field: "tracked_at", type: "temporal", title: "time", timeUnit: "yearmonthdatehoursminutes"}
           ]
         },
         resolve: {
