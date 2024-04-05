@@ -93,6 +93,10 @@ TODO
           y: {
             field: "rank",
             type: "quantitative",
+            scale: {
+              reverse: true,
+              // domainMin: 1,
+            }
           },
           color: { field: "layer", type: "nominal", scheme: "category10" }
         },
