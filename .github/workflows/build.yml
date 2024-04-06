@@ -34,7 +34,7 @@ jobs:
 
       - name: Download data
         run: |
-          curl -L ${{ secrets.DATA_URL }} -o _data/stories.json.json
+          curl -L ${{ secrets.DATA_URL }} -o _data/stories.json
       - name: Copy data from /_data to /data
         run: |
           cp _data/stories.json data/stories.json
