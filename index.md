@@ -20,8 +20,12 @@ Maintained by [Nami W](https://nami.land/). Database sponsored by [Retool](https
 ## sample live data - score/rank/comments history for current top stories
 
 {% for story in site.data.stories.stories %}
-  {% include story.md story_index=forloop.index story_data=story %}
+  {% include story.md story_index=forloop.index0 story_data=story %}
 {% endfor %}
+
+<script type="module">
+  {% include charts.js %}
+</script>
 
 ## dashboard
 

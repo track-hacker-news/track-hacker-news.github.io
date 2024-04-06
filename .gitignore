@@ -3,5 +3,6 @@ _site
 .jekyll-metadata
 
 /_data/stories.json
+/data/stories.json
 
 .DS_Store
