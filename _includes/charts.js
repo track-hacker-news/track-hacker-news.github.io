@@ -1,108 +1,112 @@
 const data = await (await fetch("data/stories.json")).json()
+
 data.stories.forEach((story, i) => {
-  const spec = {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    description: "track-hacker-news.com",
-    width: 400,
-    height: 200,
-    padding: 5,
+  const divId = `sample-story-chart-${i}`
+  const chart = echarts.init(document.getElementById(divId))
+  const option = {
+    dataset: [
+      // 0 - scores
+      {
+        dimensions: ['tracked_at', 'score'],
+        source: story.scorestamps,
+      },
+      // 1 - scores, sorted
+      {
+        fromDatasetIndex: 0,
+        transform: {
+          type: 'sort',
+          config: { dimension: 'tracked_at', order: 'asc' }
+        },
+      },
 
-    // TODO full date time and tilt?
-    encoding: {
-      x: {
-        field: "tracked_at", type: "temporal", title: "time"
+      // 2 - comments count
+      {
+        dimensions: ['tracked_at', 'count'],
+        source: story.descendants_count_stamps,
       },
-    },
+      // 3 - comments count, sorted
+      {
+        fromDatasetIndex: 2,
+        transform: {
+          type: 'sort',
+          config: { dimension: 'tracked_at', order: 'asc' }
+        },
+      },
 
-    layer: [
+      // 4 - rank
       {
-        data: {
-          name: "scorestamps",
-          values: story.scorestamps
-        },
-        transform: [
-          { calculate: "'score'", as: "layer" }
-        ],
-        mark: "line",
-        encoding: {
-          y: {
-            field: "score",
-            type: "quantitative",
-            title: "score & comments count",
-          },
-          color: { field: "layer", type: "nominal", scheme: "category10" },
-          tooltip: [
-            { field: "score", type: "quantitative", title: "score" },
-            { field: "tracked_at", type: "temporal", title: "time", timeUnit: "yearmonthdatehoursminutes"}
-          ]
-        }
+        dimensions: ['tracked_at', 'rank'],
+        source: story.rankstamps,
       },
+      // 5 - rank, sorted
       {
-        data: {
-          name: "comments_count_stamps",
-          values: story.descendants_count_stamps
+        fromDatasetIndex: 4,
+        transform: {
+          type: 'sort',
+          config: { dimension: 'tracked_at', order: 'asc' }
         },
-        transform: [
-          { calculate: "'comments'", as: "layer" }
-        ],
-        mark: "line",
-        encoding: {
-          y: {
-            field: "count",
-            type: "quantitative",
-            title: "",
-            axis: {
-              orient: "left",
-            },
-          },
-          color: { field: "layer", type: "nominal", scheme: "category10" },
-          tooltip: [
-            { field: "count", type: "quantitative", title: "comments" },
-            { field: "tracked_at", type: "temporal", title: "time", timeUnit: "yearmonthdatehoursminutes"}
-          ]
-        }
-      },
-      {
-        data: {
-          name: "rankstamps",
-          values: story.rankstamps
-        },
-        transform: [
-          { calculate: "'ranks'", as: "layer" }
-        ],
-        mark: {
-          type: "line",
-          point: true,
-        },
-        encoding: {
-          y: {
-            field: "rank",
-            type: "quantitative",
-            scale: {
-              reverse: true,
-              // domainMin: 1,
-            },
-            tickMinStep: 1
-          },
-          color: { field: "layer", type: "nominal", scheme: "category10" },
-          tooltip: [
-            { field: "rank", type: "quantitative", title: "rank" },
-            { field: "tracked_at", type: "temporal", title: "time", timeUnit: "yearmonthdatehoursminutes"}
-          ]
-        },
-        resolve: {
-          scale: {
-            y: "independent"
-          },
-          axis: {
-            y: "right",
-          }
-        }
       },
     ],
+    // title: {
+    //   text: ''
+    // },
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      data: ['score', 'comments count', 'rank']
+    },
+    grid: {
+      left: '3%',
+      right: '3%',
+      bottom: '3%',
+      containLabel: true
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
+    xAxis: {
+      type: 'time',
+    },
+    yAxis: [
+      {
+        type: 'value'
+      },
+      {
+        type: 'value',
+        splitLine: {
+          show: false
+        },
+        inverse: true,
+      }
+    ],
+    series: [
+      {
+        name: 'score',
+        type: 'line',
+        datasetIndex: 1,
+      },
+      {
+        name: 'comments count',
+        type: 'line',
+        stack: 'Total',
+        datasetIndex: 3,
+      },
+      {
+        name: 'rank',
+        type: 'line',
+        datasetIndex: 5,
+        yAxisIndex: 1
+      }
+    ]
   }
+  chart.setOption(option)
 
-  vegaEmbed(`#sample-story-chart-${i}`, spec).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
+  // responsive chart size
+  // https://echarts.apache.org/handbook/en/concepts/chart-size#reactive-of-the-container-size
+  window.addEventListener('resize', function() {
+    chart.resize()
+  })
 })
