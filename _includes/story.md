@@ -4,4 +4,8 @@
   </a>
 </h3>
 
-<div id="sample-story-chart-{{include.story_index}}"></div>
+<!-- TODO responsive -->
+<!-- https://echarts.apache.org/handbook/en/concepts/chart-size/ -->
+<div style="width:100%; min-width:480px; height:400px;">
+  <div id="sample-story-chart-{{include.story_index}}" style="width:100%; height:100%;"></div>
+</div>
