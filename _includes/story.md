@@ -1,9 +1,8 @@
 <h3>
-  <a target="_blank" href="https://news.ycombinator.com/item?id={{include.story_data.id}}">
+  <a target="_blank" href="https://namiw.retool.com/p/track_hn-story#story_id={{include.story_data.id}}">
     {{include.story_data.id}} - {{include.story_data.title}}
   </a>
 </h3>
-
 <!-- TODO responsive -->
 <!-- https://echarts.apache.org/handbook/en/concepts/chart-size/ -->
 <div style="width:100%; min-width:480px; height:400px;">

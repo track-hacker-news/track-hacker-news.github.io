@@ -8,16 +8,16 @@ layout: default
 
 Track HN ([track-hacker-news.com](https://track-hacker-news.com)) is a project to track, archive, visualize and analyze data from [Hacker News](https://news.ycombinator.com/).
 
-Maintained by [Nami W](https://nami.land/). Database sponsored by [Retool](https://retool.com/).
+Created by [Nami W](https://nami.land/). Database sponsored by [Retool](https://retool.com/).
 
 ## features
 
 - complete and up-to-date dataset
-- additional fields like URL HTTP status
+- additional data like URL HTTP status
 - score, rank and comments count history
 - interactive dashboard
 
-## sample live data - score/rank/comments history for current top stories
+## sample live data - score/comments/rank history for trending stories
 
 {% for story in site.data.stories.stories %}
   {% include story.md story_index=forloop.index0 story_data=story %}
@@ -27,19 +27,29 @@ Maintained by [Nami W](https://nami.land/). Database sponsored by [Retool](https
   {% include charts.js %}
 </script>
 
-## dashboard
+## dashboards
 
-TODO
+I've publicized several dashboards to help analyze the data, here are some of them:
 
-## components
+### [Single Story Analysis](https://namiw.retool.com/p/track_hn-story)
 
-This projects consists of several components. I'm working on open sourcing most of them.
+{% include figure.html
+  src="track_hn_retool_story_screenshot.png"
+  alt="Single Story Analysis dashboard built with Retool"
+  caption="Single Story Analysis dashboard built with Retool"
+  maxwidth="640px"
+  url="https://namiw.retool.com/p/track_hn-story"
+%}
+
+## components & stacks
+
+This projects consists of several components, some are WIP. I'm working on publishing and open sourcing most of them.
 
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rails/rails-plain.svg" width="16" style="display: inline-block" /> a service to track and archive data
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="16" style="display: inline-block" /> a database to store and search data
-- <img src="assets/retool.svg" width="16" style="display: inline-block" /> a dashboard build with retool
-- <img src="assets/chrome-web-store.svg" width="16" style="display: inline-block" /> a chrome extension to add score/rank history chart to HN website
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" width="16" style="display: inline-block" /> an automate twitter/x bot
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="16" style="display: inline-block" /> a database to store, index and search data
+- <img src="assets/retool.svg" width="16" style="display: inline-block" /> [dashboards built with Retool](https://namiw.retool.com/p/track_hn-stories)
+- <img src="assets/chrome-web-store.svg" width="16" style="display: inline-block" /> a browser extension to add score/rank history chart to HN website
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" width="16" style="display: inline-block" /> an automate twitter/x bot to tweet about latest top stories
 
 ## posts/reports
 
@@ -47,8 +57,8 @@ This projects consists of several components. I'm working on open sourcing most 
 
 ## help needed
 
-Retool kindly sponsors a postgres instance. I'm still looking for sponsors for the computing resources. If you are interested, please [contact me](mailto:me@nami.land).
+Retool kindly sponsors a postgres instance for this project. I'm inviting sponsorship for computing resources to host a medium-load web application. I'm also open to explore other data analysis/visualization solutions. If you are interested, please [contact me](mailto:me@nami.land).
 
 ## feedbacks
 
-TODO feedbacks -> github discussions
+[Github Discussions](https://github.com/orgs/track-hacker-news/discussions)
