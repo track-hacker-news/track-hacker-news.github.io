@@ -62,3 +62,7 @@ Retool kindly sponsors a postgres instance for this project. I'm inviting sponso
 ## feedbacks
 
 [Github Discussions](https://github.com/orgs/track-hacker-news/discussions)
+
+<script >
+  {% include umami.js %}
+</script>
