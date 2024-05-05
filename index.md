@@ -31,12 +31,22 @@ Created by [Nami W](https://nami.land/). Database sponsored by [Retool](https://
 
 I've publicized several dashboards to help analyze the data, here are some of them:
 
+### [Stories Data Overview](https://namiw.retool.com/p/track_hn-stories)
+
+{% include figure.html
+  src="track_hn_retool_stories_screenshot.opt.png"
+  alt="Stories Data Overview"
+  caption="Single Stories Data Overview"
+  maxwidth="640px"
+  url="https://namiw.retool.com/p/track_hn-stories"
+%}
+
 ### [Single Story Analysis](https://namiw.retool.com/p/track_hn-story)
 
 {% include figure.html
-  src="track_hn_retool_story_screenshot.png"
-  alt="Single Story Analysis dashboard built with Retool"
-  caption="Single Story Analysis dashboard built with Retool"
+  src="track_hn_retool_story_screenshot.opt.png"
+  alt="Single Story Analysis"
+  caption="Single Story Analysis"
   maxwidth="640px"
   url="https://namiw.retool.com/p/track_hn-story"
 %}
