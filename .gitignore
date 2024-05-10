@@ -2,7 +2,4 @@ _site
 .sass-cache
 .jekyll-metadata
 
-/_data/stories.json
-/data/stories.json
-
 .DS_Store

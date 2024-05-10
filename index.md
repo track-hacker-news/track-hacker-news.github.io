@@ -13,18 +13,17 @@ Created by [Nami W](https://nami.land/). Database sponsored by [Retool](https://
 ## features
 
 - complete and up-to-date dataset
-- additional data like URL HTTP status
 - score, rank and comments count history
+- additional data like URL HTTP status
+- API service
 - interactive dashboard
 
-## sample live data - score/comments/rank history for trending stories
+## live data demo - story score and rank history
 
-{% for story in site.data.stories.stories %}
-  {% include story.md story_index=forloop.index0 story_data=story %}
-{% endfor %}
+{% include story.html %}
 
 <script type="module">
-  {% include charts.js %}
+  {% include story.js %}
 </script>
 
 ## dashboards
@@ -55,8 +54,8 @@ I've publicized several dashboards to help analyze the data, here are some of th
 
 This projects consists of several components, some are WIP. I'm working on publishing and open sourcing most of them.
 
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rails/rails-plain.svg" width="16" style="display: inline-block" /> a service to track and archive data
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="16" style="display: inline-block" /> a database to store, index and search data
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rails/rails-plain.svg" width="16" style="display: inline-block" /> a service to track data and provide API
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="16" style="display: inline-block" /> a database to store and search data
 - <img src="assets/retool.svg" width="16" style="display: inline-block" /> [dashboards built with Retool](https://namiw.retool.com/p/track_hn-stories)
 - <img src="assets/chrome-web-store.svg" width="16" style="display: inline-block" /> a browser extension to add score/rank history chart to HN website
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" width="16" style="display: inline-block" /> an automate twitter/x bot to tweet about latest top stories
@@ -67,7 +66,7 @@ This projects consists of several components, some are WIP. I'm working on publi
 
 ## help needed
 
-Retool kindly sponsors a postgres instance for this project. I'm inviting sponsorship for computing resources to host a medium-load web application. I'm also open to explore other data analysis/visualization solutions. If you are interested, please [contact me](mailto:me@nami.land).
+I'm inviting sponsorship for computing and database resources to host a medium-load web application. I'm also open to explore other data analysis/visualization solutions. If you are interested, please [contact me](mailto:me@nami.land).
 
 ## feedbacks
 

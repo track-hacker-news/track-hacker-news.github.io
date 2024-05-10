@@ -1,8 +1,17 @@
-const data = await (await fetch("data/stories.json")).json()
+// https://www.joshwcomeau.com/snippets/javascript/debounce/
+const debounce = (callback, wait) => {
+  let timeoutId = null
+  return (...args) => {
+    window.clearTimeout(timeoutId)
+    timeoutId = window.setTimeout(() => {
+      callback.apply(null, args)
+    }, wait)
+  }
+}
 
-data.stories.forEach((story, i) => {
-  const divId = `sample-story-chart-${i}`
-  const chart = echarts.init(document.getElementById(divId))
+const renderChart = (element, data) => {
+  const story = data
+  const chart = echarts.init(element)
   const option = {
     dataset: [
       // 0 - scores
@@ -109,4 +118,38 @@ data.stories.forEach((story, i) => {
   window.addEventListener('resize', function() {
     chart.resize()
   })
-})
+}
+
+const applyStoryId = async (storyId) => {
+  // const story = await (await fetch(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`)).json()
+  const storyData = await (await fetch(`https://worker.track-hacker-news.com/?story=${storyId}`)).json()
+
+  // get components
+  const title = document.querySelector("section#story a#title")
+  const chart = document.querySelector("section#story #chart")
+
+  title.href = `https://namiw.retool.com/p/track_hn-story#story_id=${storyId}`
+  title.textContent = `${storyId} - ${storyData.title}`
+
+  renderChart(chart, storyData)
+}
+
+const init = async () => {
+  // fetch a trending story
+  const topStoryIds = (await (await fetch("https://hacker-news.firebaseio.com/v0/topstories.json")).json()).slice(0, 30)
+  const storyId = topStoryIds[Math.floor(Math.random() * topStoryIds.length)]
+
+  applyStoryId(storyId)
+
+  const input = document.querySelector("section#story input#chart-story-id")
+  input.value = `${storyId}`
+
+  const handleStoryIdInputChange = debounce(async (event) => {
+    const storyId = event.target.value
+    if (!storyId) { return }
+    await applyStoryId(storyId)
+  }, 500)
+  input.addEventListener("change", handleStoryIdInputChange)
+}
+
+init()
