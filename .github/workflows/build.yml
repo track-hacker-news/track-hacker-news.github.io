@@ -35,12 +35,12 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           # cache-version: 0 # Increment this number if you need to re-download cached gems
 
-      - name: Download data
-        run: |
-          curl -L ${{ secrets.DATA_URL }} -o _data/stories.json
-      - name: Copy data from /_data to /data
-        run: |
-          cp _data/stories.json data/stories.json
+      # - name: Download data
+      #   run: |
+      #     curl -L ${{ secrets.DATA_URL }} -o _data/stories.json
+      # - name: Copy data from /_data to /data
+      #   run: |
+      #     cp _data/stories.json data/stories.json
 
       - name: Setup Pages
         id: pages
