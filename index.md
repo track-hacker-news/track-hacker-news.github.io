@@ -26,6 +26,22 @@ Created by [Nami W](https://nami.land/). Database sponsored by [Retool](https://
   {% include story.js %}
 </script>
 
+## browser extension
+
+<a href="https://chromewebstore.google.com/detail/track-hn/mkckmjhojegdmnplcjpndnjmcncfbdpg" target="_blank">
+  <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/tbyBjqi7Zu733AAKA5n4.png" style="margin:unset">
+</a>
+
+I've created a browser extension to add score/rank history chart to HN website.
+
+{% include figure.html
+  src="ext screenshot.png"
+  alt="Track HN Browser Extension"
+  caption="Track HN Browser Extension"
+  maxwidth="640px"
+  url="https://chromewebstore.google.com/detail/track-hn/mkckmjhojegdmnplcjpndnjmcncfbdpg"
+%}
+
 ## dashboards
 
 I've publicized several dashboards to help analyze the data, here are some of them:
@@ -63,6 +79,7 @@ This projects consists of several components, some are WIP. I'm working on publi
 ## posts/reports
 
 - [Track HN: analyze the survival rate of 120,396 Show HN stories (June 2023)](https://nami.land/2023/06/11/track-hn-analyze-survival-rate-of-120-396-show-hn-posts-june-2023.html)
+- [Track HN: Score and Rank History (plus My Nocode Experiences)](https://nami.land/2024/05/10/track-hn-rank-history.html)
 
 ## help needed
 
