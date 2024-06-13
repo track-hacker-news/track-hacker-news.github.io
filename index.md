@@ -8,7 +8,7 @@ layout: default
 
 Track HN ([track-hacker-news.com](https://track-hacker-news.com)) is a project to track, archive, visualize and analyze data from [Hacker News](https://news.ycombinator.com/).
 
-Created by [Nami W](https://nami.land/). Database sponsored by [Retool](https://retool.com/).
+Created by [Nami W](https://nami.land/).
 
 ## features
 
@@ -88,6 +88,11 @@ I'm inviting sponsorship for computing and database resources to host a medium-l
 ## feedbacks
 
 [Github Discussions](https://github.com/orgs/track-hacker-news/discussions)
+
+## gratitude
+
+- [Retool](https://retool.com/) for sponsoring a database instance.
+- [RoRvsWild](https://www.rorvswild.com/) for APM [dashboard](https://www.rorvswild.com/applications/136236/requests).
 
 <script >
   {% include umami.js %}
