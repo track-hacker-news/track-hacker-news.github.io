@@ -74,7 +74,7 @@ This projects consists of several components, some are WIP. I'm working on publi
 - <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="16" style="display: inline-block" /> a database to store and search data
 - <img src="assets/retool.svg" width="16" style="display: inline-block" /> [dashboards built with Retool](https://namiw.retool.com/p/track_hn-stories)
 - <img src="assets/chrome-web-store.svg" width="16" style="display: inline-block" /> [a browser extension](https://chromewebstore.google.com/detail/track-hn/mkckmjhojegdmnplcjpndnjmcncfbdpg) to add score/rank history chart to HN website
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" width="16" style="display: inline-block" /> an automate twitter/x bot to tweet about latest top stories
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" width="16" style="display: inline-block" /> [an automate twitter/x bot](https://x.com/TrackHN) to tweet about latest top stories
 
 ## posts/reports
 
