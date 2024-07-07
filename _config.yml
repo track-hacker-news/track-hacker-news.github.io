@@ -22,7 +22,7 @@ email: me@nami.land
 url: https://track-hacker-news.com
 baseurl: "" # subpath of the site, e.g. "/blog" (leave it blank "" if you're site shouldn't use a subpath)
 description: > # description of the site (multiple lines allowed)
-  Track HN (track-hacker-news.com) is a project TODO
+  Track HN (track-hacker-news.com) is a project to track and analyze Hacker News data.
 
 permalink: /:slug.html
 
