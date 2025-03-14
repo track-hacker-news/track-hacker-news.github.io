@@ -29,7 +29,7 @@ Created by [Nami W](https://nami.land/).
 ## browser extension
 
 <a href="https://chromewebstore.google.com/detail/track-hn/mkckmjhojegdmnplcjpndnjmcncfbdpg" target="_blank">
-  <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/tbyBjqi7Zu733AAKA5n4.png" style="margin:unset">
+  <img src="assets/images/chrome-web-store-available.png" style="margin:unset">
 </a>
 
 I've created a browser extension to add score/rank history chart to HN website.
